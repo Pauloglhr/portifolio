@@ -1,6 +1,9 @@
 import { createGlobalStyle } from "styled-components";
 
 const ResetCss = createGlobalStyle`
+    *{
+        font-family: 'Inter', sans-serif;
+    }
     html {
     line-height: 1.15; 
     -webkit-text-size-adjust: 100%; 

@@ -1,9 +1,16 @@
-
+import HeroSection from "@/components/HeroSection";
+import Navbar from "@/components/Navbar";
 
 const Inicio = () => {
-    return (
-        <h1>Olá, bem vindo ao meu portifólio!</h1>
-    )
-}
+  return (
+    <>
+      <Navbar />
+      <HeroSection />
+    </>
+    // PortifolioSection
+    // AboutSection
+    // ContactSection
+  );
+};
 
-export default Inicio
+export default Inicio;
