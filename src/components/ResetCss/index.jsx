@@ -3,6 +3,7 @@ import { createGlobalStyle } from "styled-components";
 const ResetCss = createGlobalStyle`
     *{
         font-family: 'Inter', sans-serif;
+        color: #D9D9D9;
     }
     html {
     line-height: 1.15; 
@@ -11,6 +12,7 @@ const ResetCss = createGlobalStyle`
     body {
     margin: 0;
     min-height: 100vh;
+    background-color: #1C1B1E;
     }
     main {
     display: block;
