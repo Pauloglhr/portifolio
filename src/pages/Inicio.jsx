@@ -1,15 +1,16 @@
 import ContactSection from "@/components/ContactSection";
 import HeroSection from "@/components/HeroSection";
-import Navbar from "@/components/Navbar";
 import ProjectsSection from "@/components/ProjectsSection";
+import StyledContainer from "@/components/StyledContainer";
 
 const Inicio = () => {
   return (
     <>
-      <Navbar />
       <HeroSection />
-      <ProjectsSection />
-      <ContactSection />
+      <StyledContainer>
+        <ProjectsSection />
+        <ContactSection />
+      </StyledContainer>
     </>
   );
 };
