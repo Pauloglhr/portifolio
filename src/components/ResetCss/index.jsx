@@ -12,7 +12,7 @@ const ResetCss = createGlobalStyle`
     body {
     margin: 0;
     min-height: 100vh;
-    background-color: #1C1B1E;
+    background-color: black;
     }
     main {
     display: block;

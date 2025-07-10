@@ -1,17 +1,13 @@
-import ContactSection from "@/components/ContactSection";
+"use client";
+
 import HeroSection from "@/components/HeroSection";
-import ProjectsSection from "@/components/ProjectsSection";
-import StyledContainer from "@/components/StyledContainer";
+import ReactLenis from "@studio-freight/react-lenis";
 
 const Inicio = () => {
   return (
-    <>
+    <ReactLenis root>
       <HeroSection />
-      <StyledContainer>
-        <ProjectsSection />
-        <ContactSection />
-      </StyledContainer>
-    </>
+    </ReactLenis>
   );
 };
 
