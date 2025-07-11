@@ -1,5 +1,6 @@
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
@@ -22,25 +23,34 @@ const NavbarEstilizado = styled.nav`
   }
 `;
 
+gsap.registerPlugin(ScrollTrigger);
+
 const Navbar = () => {
   useGSAP(() => {
-    const navTween = gsap.timeline({
-      scrollTrigger: {
-        trigger: 'nav',
-        start: 'bottom top'
+    gsap.fromTo(
+      "nav",
+      {
+        backgroundColor: "transparent",
+        backdropFilter: "blur(0px)",
+        webkitBackdropFilter: "blur(0px)", 
+      },
+      {
+        backgroundColor: "#00000050",
+        backdropFilter: "blur(10px)",
+        webkitBackdropFilter: "blur(10px)",
+        ease: "power1.inOut",
+        scrollTrigger: {
+          trigger: "body",
+          start: "top top",
+          end: "+=150",
+          scrub: 1,
+        },
       }
-    });
-
-    navTween.fromTo('nav', { backgroundColor: 'transparent' }, {
-      backgroundColor: '#00000050',
-      backdropFilter: 'blur(10px)',
-      duration: 1,
-      ease: 'power1.inOut'
-    }) 
-  })
+    );
+  }, []);
   return (
     <NavbarEstilizado>
-      <Link to={"/"}>LOGO</Link>
+      <Link to={"/"}>{'<'}PT/{'>'}</Link>
       <div>
         <Link to={"/"}>INÍCIO</Link>
         <Link to={"/About"}>SOBRE MIM</Link>
