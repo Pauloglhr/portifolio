@@ -11,11 +11,12 @@ const StyledHeroSection = styled.div`
   align-items: center;
   width: 100%;
   height: 100vh;
-
-  h1, span {
+  text-align: center;
+  h1,
+  span {
     overflow: hidden;
   }
-  
+
   h1 {
     font-size: 12rem;
     margin: 0;
@@ -24,6 +25,11 @@ const StyledHeroSection = styled.div`
   span {
     font-size: 2rem;
     line-height: 1.7rem;
+  }
+  @media (max-width: 425px) {
+    h1 {
+      font-size: 25%;
+    }
   }
 `;
 
@@ -38,14 +44,15 @@ const HeroSection = () => {
       const tl = gsap.timeline({ delay: 0.5 }); // Reduzi o delay inicial
 
       tl.from(title.chars, {
-          y: 500,
-          opacity: 0,
-          rotationZ: 15,
-          duration: 1,
-          ease: "power4.out",
-          stagger: 0.05,
-        })
-        .from(subtitle.chars, {
+        y: 500,
+        opacity: 0,
+        rotationZ: 15,
+        duration: 1,
+        ease: "power4.out",
+        stagger: 0.05,
+      }).from(
+        subtitle.chars,
+        {
           y: 40,
           opacity: 0,
           duration: 0.5,

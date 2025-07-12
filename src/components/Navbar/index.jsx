@@ -1,10 +1,11 @@
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { Link, useNavigate } from "react-router-dom";
 
 const NavbarEstilizado = styled.nav`
+
   position: fixed;
   top: 0;
   z-index: 1;
@@ -12,15 +13,15 @@ const NavbarEstilizado = styled.nav`
   justify-content: space-between;
   width: 100%;
   padding: 25px 80px;
-  
+
   div {
     display: flex;
     gap: 2rem;
     margin-right: 160px;
-  };
+  }
 
   div > a {
-     &::after {
+    &::after {
       content: "";
       position: absolute;
       width: 0;
@@ -28,12 +29,12 @@ const NavbarEstilizado = styled.nav`
       background-color: white;
       left: 0;
       bottom: -10px;
-      transition: .3s;
+      transition: 0.3s;
     }
-    &:hover{
+    &:hover {
       color: white;
     }
-    &:hover:after{
+    &:hover:after {
       width: 100%;
     }
   }
@@ -50,13 +51,26 @@ const NavbarEstilizado = styled.nav`
 gsap.registerPlugin(ScrollTrigger);
 
 const Navbar = () => {
+  const navigate = useNavigate();
+  
+  const handleLinkClick = (e, to) => {
+    e.preventDefault();
+    if (document.startViewTransition) {
+      document.startViewTransition(() => {
+        navigate(to);
+      });
+    } else {
+      navigate(to);
+    }
+  };
+
   useGSAP(() => {
     gsap.fromTo(
       "nav",
       {
         backgroundColor: "transparent",
         backdropFilter: "blur(0px)",
-        webkitBackdropFilter: "blur(0px)", 
+        webkitBackdropFilter: "blur(0px)",
       },
       {
         backgroundColor: "#00000050",
@@ -72,12 +86,19 @@ const Navbar = () => {
       }
     );
   }, []);
+
   return (
     <NavbarEstilizado>
-      <Link to={"/"}>{'<'}PT/{'>'}</Link>
+      <Link to="/" onClick={(e) => handleLinkClick(e, "/")}>
+        {"<"}PT/{">"}
+      </Link>
       <div>
-        <Link to={"/"}>INÍCIO</Link>
-        <Link to={"/About"}>SOBRE MIM</Link>
+        <Link to="/" onClick={(e) => handleLinkClick(e, "/")}>
+          Inicio
+        </Link>
+        <Link to="/About" onClick={(e) => handleLinkClick(e, "/About")}>
+          Sobre Mim
+        </Link>
       </div>
     </NavbarEstilizado>
   );

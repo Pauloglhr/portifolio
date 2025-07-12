@@ -149,6 +149,35 @@ const ResetCss = createGlobalStyle`
     [hidden] {
     display: none;
     }
+    @keyframes slide-out {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0.2;
+    transform: translateY(-35%);
+  }
+}
+
+/* Animação para a nova página que está entrando */
+@keyframes slide-in {
+  from {
+    clip-path: polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%);
+  }
+  to {
+    clip-path: polygon(0% 100%, 100% 100%, 100% 0%, 0% 0%);
+  }
+}
+
+/* Aplica as animações durante a transição */
+::view-transition-old(root) {
+  animation: slide-out 1.5s cubic-bezier(0.87, 0, 0.13, 1) forwards;
+}
+
+::view-transition-new(root) {
+  animation: slide-in 1.5s cubic-bezier(0.87, 0, 0.13, 1) forwards;
+}
 `;
 
 export default ResetCss;
