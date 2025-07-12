@@ -12,14 +12,38 @@ const NavbarEstilizado = styled.nav`
   justify-content: space-between;
   width: 100%;
   padding: 25px 80px;
+  
   div {
     display: flex;
     gap: 2rem;
     margin-right: 160px;
+  };
+
+  div > a {
+     &::after {
+      content: "";
+      position: absolute;
+      width: 0;
+      height: 3px;
+      background-color: white;
+      left: 0;
+      bottom: -10px;
+      transition: .3s;
+    }
+    &:hover{
+      color: white;
+    }
+    &:hover:after{
+      width: 100%;
+    }
   }
 
   a {
     text-decoration: none;
+    position: relative;
+    letter-spacing: 0.5px;
+    padding: 0 10px;
+    color: #a1a1a1;
   }
 `;
 
