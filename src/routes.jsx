@@ -4,19 +4,22 @@ import ResetCss from "@/components/ResetCss";
 import About from "./pages/About";
 import Navbar from "./components/Navbar";
 import ReactLenis from "@studio-freight/react-lenis";
+import { NavigationProvider } from "./contexts/NavigationContext";
 
 function AppRoutes() {
   return (
     <>
       <BrowserRouter>
         <ResetCss />
-        <Navbar />
-        <ReactLenis root>
-          <Routes>
-            <Route path="/" element={<Inicio />} />
-            <Route path="/About" element={<About />} />
-          </Routes>
-        </ReactLenis>
+        <NavigationProvider>
+          <Navbar />
+          <ReactLenis root>
+            <Routes>
+              <Route path="/" element={<Inicio />} />
+              <Route path="/About" element={<About />} />
+            </Routes>
+          </ReactLenis>
+        </NavigationProvider>
       </BrowserRouter>
     </>
   );

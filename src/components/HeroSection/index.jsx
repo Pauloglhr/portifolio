@@ -13,7 +13,7 @@ const StyledHeroSection = styled.div`
   height: 100vh;
   text-align: center;
   h1,
-  span {
+  h2 {
     overflow: hidden;
   }
 
@@ -22,7 +22,7 @@ const StyledHeroSection = styled.div`
     margin: 0;
   }
 
-  span {
+  h2 {
     font-size: 2rem;
     line-height: 1.7rem;
   }
@@ -39,7 +39,7 @@ const HeroSection = () => {
   useGSAP(
     () => {
       const title = new SplitType("h1", { types: "chars" });
-      const subtitle = new SplitType("span", { types: "chars" });
+      const subtitle = new SplitType("h2", { types: "chars" });
 
       const tl = gsap.timeline({ delay: 0.5 }); // Reduzi o delay inicial
 
@@ -68,7 +68,7 @@ const HeroSection = () => {
   return (
     <StyledHeroSection ref={container}>
       <h1>PAULO TORRES</h1>
-      <span>WEB DEVELOPER</span>
+      <h2>WEB DEVELOPER</h2>
     </StyledHeroSection>
   );
 };

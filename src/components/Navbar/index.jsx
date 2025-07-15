@@ -2,7 +2,8 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import styled from "styled-components";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { useTransitionNavigate } from "@/contexts/NavigationContext";
 
 const NavbarEstilizado = styled.nav`
 
@@ -51,18 +52,12 @@ const NavbarEstilizado = styled.nav`
 gsap.registerPlugin(ScrollTrigger);
 
 const Navbar = () => {
-  const navigate = useNavigate();
-  
-  const handleLinkClick = (e, to) => {
-    e.preventDefault();
-    if (document.startViewTransition) {
-      document.startViewTransition(() => {
-        navigate(to);
-      });
-    } else {
-      navigate(to);
-    }
-  };
+ const { navigateWithTransition } = useTransitionNavigate()
+
+ const handleLinkClick = (e, to) => {
+  e.preventDefault();
+  navigateWithTransition(to);
+ }
 
   useGSAP(() => {
     gsap.fromTo(
