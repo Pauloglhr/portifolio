@@ -1,7 +1,8 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Inicio from "@/pages/Inicio";
-import ResetCss from "@/components/ResetCss";
+import Projeto from "./pages/Projeto";
 import About from "./pages/About";
+import ResetCss from "@/components/ResetCss";
 import Navbar from "./components/Navbar";
 import ReactLenis from "@studio-freight/react-lenis";
 import { NavigationProvider } from "./contexts/NavigationContext";
@@ -15,8 +16,9 @@ function AppRoutes() {
           <Navbar />
           <ReactLenis root>
             <Routes>
-              <Route path="/" element={<Inicio />} />
+              <Route index element={<Inicio />} />
               <Route path="/About" element={<About />} />
+              <Route path="/Projeto/:id" element={<Projeto />} />
             </Routes>
           </ReactLenis>
         </NavigationProvider>

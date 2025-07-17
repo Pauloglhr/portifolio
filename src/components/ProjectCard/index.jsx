@@ -1,40 +1,59 @@
+import { useTransitionNavigate } from "@/contexts/NavigationContext";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import imagem1 from "@/assets/imagem.png";
 
 const StyledCard = styled.div`
-  /* border: 1px solid #333; */
-  border-radius: 8px;
-  overflow: hidden;
-  cursor: pointer;
-  transition: transform 0.5s ease;
-  width: 300px;
+  display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 5rem;
+    padding: 1rem;
+    align-items: center;
 
-  &:hover {
-    transform: scale(1.03);
-    h3 {
-      display: block;
-      position: fixed;
-      top: 50%;
-      left: 50%;
+  .card {
+    padding: 1.5rem;
+    border-radius: 8px;
+    color: white;
+    transition: ease 0.2s;
+
+    &:hover {
+      transform: scale(1.02);
     }
   }
 
-  img {
-    max-height: 500px;
+  .card {
+    height: 400px;
     width: 300px;
+    background-color: #4a90e2;
+    background-image: url(${imagem1});
+    background-size: cover;
+    background-repeat: no-repeat;
   }
 
-  h3 {
-    display: none;
+  .card-wide {
+    height: 250px;
+    width: 500px;
+    background-color: #7ed321;
+    background-image: url(${imagem1});
+    background-size: cover;
+    background-repeat: no-repeat;
   }
 `;
 
-const ProjectCard = ({ imagem, titulo }) => {
+const ProjectCard = () => {
+  const { navigateWithTransition } = useTransitionNavigate();
+
+  const handleLinkClick = (e, to) => {
+    e.preventDefault();
+    navigateWithTransition(to);
+  };
   return (
     <StyledCard>
-      <Link to="/About">
-        <img src={imagem} />
-        <h3>{titulo}</h3>
+      <Link to="/Projeto/1" onClick={(e) => handleLinkClick(e, "/Projeto/1")}>
+        <div className="card card-wide">
+          <span>Projeto1</span>
+        </div>
       </Link>
     </StyledCard>
   );
