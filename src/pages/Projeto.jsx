@@ -1,10 +1,13 @@
 import { useParams } from "react-router-dom";
-
+import projetos from "@/json/projetos.json";
 
 const Projeto = () => {
-    const parametros = useParams()
+    const parametros = useParams();
+    const projetoAtual = projetos.find((projeto) => {
+        return projeto.id === Number(parametros.id)
+    })
     return(
-        <h1>Projeto {parametros.id}</h1>
+        <h1>{projetoAtual.titulo}</h1>
     );
 };
 

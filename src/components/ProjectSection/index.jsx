@@ -1,5 +1,3 @@
-import { useTransitionNavigate } from "@/contexts/NavigationContext";
-import { Link } from "react-router-dom";
 import styled from "styled-components";
 import ProjectCard from "../ProjectCard";
 

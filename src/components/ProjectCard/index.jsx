@@ -1,15 +1,16 @@
 import { useTransitionNavigate } from "@/contexts/NavigationContext";
 import { Link } from "react-router-dom";
+import projeto from "@/json/projetos.json";
 import styled from "styled-components";
 import imagem1 from "@/assets/imagem.png";
 
 const StyledCard = styled.div`
   display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 5rem;
-    padding: 1rem;
-    align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 5rem;
+  padding: 1rem;
+  align-items: center;
 
   .card {
     padding: 1.5rem;
@@ -50,11 +51,18 @@ const ProjectCard = () => {
   };
   return (
     <StyledCard>
-      <Link to="/Projeto/1" onClick={(e) => handleLinkClick(e, "/Projeto/1")}>
-        <div className="card card-wide">
-          <span>Projeto1</span>
-        </div>
-      </Link>
+      {projeto.map((projeto) => {
+        return (
+          <Link
+            to={`/Projeto/${projeto.id}`}
+            onClick={(e) => handleLinkClick(e, `/Projeto/${projeto.id}`)}
+          >
+            <div className="card card-wide">
+              <span>Projeto1</span>
+            </div>
+          </Link>
+        );
+      })}
     </StyledCard>
   );
 };
