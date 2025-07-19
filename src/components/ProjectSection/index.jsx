@@ -1,5 +1,6 @@
+import { useTransitionNavigate } from "@/contexts/NavigationContext";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
-import ProjectCard from "../ProjectCard";
 
 const StyledProjectSection = styled.section`
   min-height: 100vh;
@@ -20,11 +21,29 @@ const StyledProjectSection = styled.section`
 `;
 
 const ProjectSection = () => {
+  const { navigateWithTransition } = useTransitionNavigate();
+
+  const handleLinkClick = (e, to) => {
+    e.preventDefault();
+    navigateWithTransition(to);
+  };
+
   return (
     <StyledProjectSection>
       <h3>PROJETOS</h3>
       <div className="container-flex">
-        <ProjectCard></ProjectCard>
+        <ul>
+          <li>
+            <Link
+              to="/projetos/pesquisa-engajamento"
+              onClick={(e) =>
+                handleLinkClick(e, "/projetos/pesquisa-engajamento")
+              }
+            >
+              Projeto 1
+            </Link>
+          </li>
+        </ul>
       </div>
     </StyledProjectSection>
   );
