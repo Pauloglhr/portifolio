@@ -1,45 +1,43 @@
 import { useTransitionNavigate } from "@/contexts/NavigationContext";
 import { Link } from "react-router-dom";
-import projeto from "@/json/projetos.json";
+import projetos from "@/json/projetos.json";
 import styled from "styled-components";
-import imagem1 from "@/assets/imagem.png";
 
-const StyledCard = styled.div`
+import imgProjeto1 from "@/assets/projetoImage/1/imagem.png";
+
+const projectImages = {
+  "pesquisa-engajamento.png": imgProjeto1,
+};
+
+const StyledCardContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 5rem;
-  padding: 1rem;
+  gap: 2rem;
+  padding: 2rem;
   align-items: center;
+`;
 
-  .card {
-    padding: 1.5rem;
-    border-radius: 8px;
-    color: white;
-    transition: ease 0.2s;
+const CardItem = styled.div`
+  border-radius: 6px;
+  color: white;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: flex-end;
+  padding: 1.5rem;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 
-    &:hover {
-      transform: scale(1.02);
-    }
+  &:hover {
+    transform: scale(1.03);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
   }
 
-  .card {
-    height: 400px;
-    width: 300px;
-    background-color: #4a90e2;
-    background-image: url(${imagem1});
-    background-size: cover;
-    background-repeat: no-repeat;
-  }
+  background-image: url(${(props) => props.bgImage});
 
-  .card-wide {
-    height: 250px;
-    width: 500px;
-    background-color: #7ed321;
-    background-image: url(${imagem1});
-    background-size: cover;
-    background-repeat: no-repeat;
-  }
+  height: ${(props) => (props.type === "tall" ? "400px" : "250px")};
+  width: ${(props) => (props.type === "tall" ? "300px" : "500px")};
 `;
 
 const ProjectCard = () => {
@@ -49,21 +47,27 @@ const ProjectCard = () => {
     e.preventDefault();
     navigateWithTransition(to);
   };
+
   return (
-    <StyledCard>
-      {projeto.map((projeto) => {
+    <StyledCardContainer>
+      {projetos.map((projeto, index) => {
         return (
           <Link
+            key={projeto.id}
             to={`/Projeto/${projeto.id}`}
             onClick={(e) => handleLinkClick(e, `/Projeto/${projeto.id}`)}
+            style={{ textDecoration: "none" }}
           >
-            <div className="card card-wide">
-              <span>Projeto1</span>
-            </div>
+            <CardItem
+              bgImage={projectImages[projeto.imagem]}
+              type={projeto.styleCard}
+            >
+              <span>{projeto.titulo}</span>
+            </CardItem>
           </Link>
         );
       })}
-    </StyledCard>
+    </StyledCardContainer>
   );
 };
 
