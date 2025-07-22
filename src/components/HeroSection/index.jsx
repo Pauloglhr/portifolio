@@ -18,18 +18,14 @@ const StyledHeroSection = styled.div`
   }
 
   h1 {
-    font-size: 12rem;
+    font-size: clamp(2.5rem, 8vw, 8rem);
     margin: 0;
   }
 
   h2 {
-    font-size: 2rem;
-    line-height: 1.7rem;
+    font-size: clamp(1rem, 3vw, 3rem);
   }
   @media (max-width: 425px) {
-    h1 {
-      font-size: 25%;
-    }
   }
 `;
 
