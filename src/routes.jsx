@@ -6,6 +6,7 @@ import Navbar from "./components/Navbar";
 import ReactLenis from "@studio-freight/react-lenis";
 import { NavigationProvider } from "./contexts/NavigationContext";
 import PesquisaEngajamento from "./pages/projetos/PesquisaEngajamento";
+import Footer from "./components/Footer";
 
 function AppRoutes() {
   return (
@@ -21,6 +22,7 @@ function AppRoutes() {
               <Route path="/projetos/pesquisa-engajamento" element={<PesquisaEngajamento />}/>
             </Routes>
           </ReactLenis>
+          <Footer />
         </NavigationProvider>
       </BrowserRouter>
     </>

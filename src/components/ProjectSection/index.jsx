@@ -8,7 +8,7 @@ import bgProjeto1 from "@/assets/projetoImage/1/imagem.png";
 import { useTransitionNavigate } from "@/contexts/NavigationContext";
 
 const StyledProjectSection = styled.section`
-  min-height: 100vh;
+  min-height: 60vh;
   h3 {
     text-align: center;
     font-size: clamp(2.5rem, 4vw, 4rem);

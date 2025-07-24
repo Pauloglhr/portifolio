@@ -6,19 +6,26 @@ import { Link } from "react-router-dom";
 import { useTransitionNavigate } from "@/contexts/NavigationContext";
 
 const NavbarEstilizado = styled.nav`
-
   position: fixed;
   top: 0;
   z-index: 1;
   display: flex;
   justify-content: space-between;
-  width: 100%;
+  width: 100vw;
   padding: 25px 80px;
+  box-sizing: border-box;
+
+  @media (max-width: 768px) {
+    padding: 25px 40px;
+  }
 
   div {
     display: flex;
     gap: 2rem;
-    margin-right: 160px;
+    @media (max-width: 768px) {
+      margin-right: 0%;
+      gap: 0;
+  }
   }
 
   div > a {
@@ -52,12 +59,12 @@ const NavbarEstilizado = styled.nav`
 gsap.registerPlugin(ScrollTrigger);
 
 const Navbar = () => {
- const { navigateWithTransition } = useTransitionNavigate()
+  const { navigateWithTransition } = useTransitionNavigate();
 
- const handleLinkClick = (e, to) => {
-  e.preventDefault();
-  navigateWithTransition(to);
- }
+  const handleLinkClick = (e, to) => {
+    e.preventDefault();
+    navigateWithTransition(to);
+  };
 
   useGSAP(() => {
     gsap.fromTo(
