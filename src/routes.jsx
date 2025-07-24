@@ -7,11 +7,13 @@ import ReactLenis from "@studio-freight/react-lenis";
 import { NavigationProvider } from "./contexts/NavigationContext";
 import PesquisaEngajamento from "./pages/projetos/PesquisaEngajamento";
 import Footer from "./components/Footer";
+import ScrollToTop from "./components/ScrollTo";
 
 function AppRoutes() {
   return (
     <>
       <BrowserRouter>
+        <ScrollToTop />
         <ResetCss />
         <NavigationProvider>
           <Navbar />

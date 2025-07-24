@@ -5,14 +5,13 @@ const NavigationContext = createContext(null);
 
 export const NavigationProvider = ({ children }) => {
   const navigate = useNavigate();
-
   const navigateWithTransition = (to) => {
     if (document.startViewTransition) {
       document.startViewTransition(() => {
         navigate(to);
-      });
+      })
     } else {
-      navigate(to);
+      navigate(to)
     }
   };
 

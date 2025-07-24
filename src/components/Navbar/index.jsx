@@ -60,7 +60,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 const Navbar = () => {
   const { navigateWithTransition } = useTransitionNavigate();
-
+  
   const handleLinkClick = (e, to) => {
     e.preventDefault();
     navigateWithTransition(to);
