@@ -3,7 +3,7 @@ import { FaGithub } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
 
 const StyledContactSection = styled.section`
-  height: 80vh;
+  min-height: 100vh;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -21,13 +21,12 @@ const StyledContactSection = styled.section`
       margin-bottom: 2rem;
       color: #ccc;
     }
-    span {
-      text-align: center;
-      font-size: clamp(1.2rem, 2vw, 1.6rem);
-      margin-bottom: 2rem;
-      line-height: 1.9rem;
-      color: #ccc;
-    }
+    p {
+    margin: 0.5rem;
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    max-width: 650px;
+    line-height: 1.6;
+  }
   }
 
   .social {
@@ -42,13 +41,16 @@ const StyledContactSection = styled.section`
     }
   }
 
-  button {
+  .mailTo {
     background-color: #4a90e2;
     cursor: pointer;
     border: none;
     padding: 1.3rem;
     border-radius: 12px;
     transition: ease 0.2s;
+    text-decoration: none;
+    font-weight: bold;
+
     &:hover {
       background-color: #376ca8;
     }
@@ -60,11 +62,11 @@ const ContactSection = () => {
     <StyledContactSection>
       <div className="conteudo">
         <h3>Vamos conversar?</h3>
-        <span>
+        <p>
           Estou disponível para novas oportunidades e colaborações. <br />
           Adoraria ouvir sobre o seu projeto ou discutir como posso agregar à
           sua equipe!
-        </span>
+        </p>
       </div>
       <div className="social">
         <a href="https://github.com/Pauloglhr" target="_blank">
@@ -74,7 +76,7 @@ const ContactSection = () => {
           <FaLinkedin size={"3em"} className="social-icon" />
         </a>
       </div>
-      <button>Enviar Mensagem</button>
+      <a href="mailto:dev.paulotorres@gmail.com" className="mailTo">Enviar Mensagem</a>
     </StyledContactSection>
   );
 };

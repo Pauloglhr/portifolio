@@ -8,7 +8,11 @@ import bgProjeto1 from "@/assets/projetoImage/1/imagem.png";
 import { useTransitionNavigate } from "@/contexts/NavigationContext";
 
 const StyledProjectSection = styled.section`
-  min-height: 60vh;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   h3 {
     text-align: center;
     font-size: clamp(2.5rem, 4vw, 4rem);
@@ -54,14 +58,14 @@ const StyledCard = styled.figure`
     width: 100vw;
     height: 100vh;
     background-color: rgba(20, 20, 20, 0.8);
-    z-index: 5; 
+    z-index: 5;
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.4s ease;
   }
 
   &:hover img {
-    transform: scale(1.05); 
+    transform: scale(1.05);
     filter: saturate(1);
   }
 

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const StyledAboutSection = styled.section`
+const StyledAboutPage = styled.section`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -11,9 +11,9 @@ const StyledAboutSection = styled.section`
 const About = () => {
   return (
     <>
-      <StyledAboutSection>
+      <StyledAboutPage>
         <h2>Sobre mim!</h2>
-      </StyledAboutSection>
+      </StyledAboutPage>
     </>
   );
 };
