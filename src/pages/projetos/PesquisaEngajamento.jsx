@@ -9,14 +9,13 @@ const StyledProjectArticle = styled.article`
   padding: 2rem;
   font-family: "Inter", sans-serif;
 
-  /* Media query para telas menores (ex: celulares) */
   @media (max-width: 768px) {
     padding: 1rem;
     margin: 2rem auto;
   }
 
   img {
-    width: 100%; /* Ocupa 100% da largura do contêiner */
+    width: 100%;
     height: auto;
     border-radius: 12px;
     margin-bottom: 3rem;
