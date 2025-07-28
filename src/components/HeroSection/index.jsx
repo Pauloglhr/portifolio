@@ -18,15 +18,18 @@ const StyledHeroSection = styled.div`
   }
 
   h1 {
-    font-size: clamp(2.5rem, 8vw, 8rem);
+    font-size: clamp(2.5rem, 10vw, 8rem);
     margin: 0;
+    text-align: center;
+    @media (max-width: 768px) {
+      /* max-width: 330px; */
+  }
   }
 
   h2 {
     font-size: clamp(1rem, 3vw, 3rem);
   }
-  @media (max-width: 425px) {
-  }
+  
 `;
 
 const HeroSection = () => {
