@@ -34,8 +34,14 @@ const Section = styled.section`
 
 const experienceData = [
   {
+    title: "Estagiário - ORGUEL",
+    date: "2025 - Atual",
+    status: "Administrativo",
+    description: "Estagiário de Planejamento e Controle da Manutenção."
+  },
+  {
     title: "Jovem Aprendiz - ORGUEL",
-    date: "2023 - Atual",
+    date: "2023 - 2025",
     status: "Administrativo",
     description: "Execução de atividades administrativas como elaboração de relatórios e controlo de planilhas. Desenvolvi automações para processos internos com as ferramentas da Power Platform, diminuindo erros manuais e contribuindo para uma melhor gestão."
   },
@@ -108,7 +114,7 @@ const About = () => {
         <Section>
           <h3>PAULO TORRES</h3>
           <p className="intro-text">
-            Olá! Sou Paulo Guilherme, um desenvolvedor Front-End apaixonado por
+            Olá! Meu nome é Paulo Torres, um desenvolvedor Front-End apaixonado por
             transformar ideias complexas em experiências digitais intuitivas e
             belas. A minha jornada na tecnologia é movida pela curiosidade e pela crença
             de que códigos podem resolver problemas reais e facilitar a vida das pessoas.
