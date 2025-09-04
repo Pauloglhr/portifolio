@@ -2,6 +2,7 @@ import styled from "styled-components";
 import imgBackground from "@/assets/projetoImage/1/imagem2.png";
 import imgBackground2 from "@/assets/projetoImage/1/imagem.png";
 import imgBackground3 from "@/assets/projetoImage/1/imagem3.png";
+import { FaGithub } from "react-icons/fa";
 
 const StyledProjectArticle = styled.article`
   max-width: 900px;
@@ -12,6 +13,33 @@ const StyledProjectArticle = styled.article`
   @media (max-width: 768px) {
     padding: 1rem;
     margin: 2rem auto;
+  }
+
+  div > a {
+    &::after {
+      content: "";
+      position: absolute;
+      width: 0;
+      height: 3px;
+      background-color: white;
+      left: 0;
+      bottom: -10px;
+      transition: 0.3s;
+    }
+    &:hover {
+      color: white;
+    }
+    &:hover:after {
+      width: 100%;
+    }
+  }
+
+  a {
+    text-decoration: none;
+    position: relative;
+    letter-spacing: 0.5px;
+    font-weight: bolder;
+    color: #b8b8b8;
   }
 
   img {
@@ -115,69 +143,82 @@ const PesquisaEngajamento = () => {
       <div className="conteudo">
         <h1>PESQUISA DE ENGAJAMENTO</h1>
         <span>
-          Um formulário de perguntas construído para coletar opiniões e
-          aprimorar meus conhecimentos em React.
+          Uma aplicação web full-stack funcional, projetada para coletar e
+          armazenar respostas de usuários de forma intuitiva e eficiente.
         </span>
+
         <p>
-          Este projeto é uma aplicação web de uma plataforma de perguntas que
-          desenvolvi para aplicar meus conhecimentos em desenvolvimento
-          front-end e resolver um problema proposto por um amigo. O objetivo
-          principal era criar uma experiência de usuário limpa e funcional, onde
-          fosse possível responder as questões de forma intuitiva.
+          Este projeto nasceu do desafio de construir uma plataforma de pesquisa
+          do zero. O objetivo foi criar uma experiência de usuário limpa, onde a
+          navegação entre as perguntas fosse fluida e as respostas fossem
+          persistidas de forma segura através de uma API RESTful conectada a um
+          banco de dados MySQL.
         </p>
-        <h3>
-          Para dar vida a este projeto, utilizei as seguintes tecnologias e
-          ferramentas:{" "}
-        </h3>
+
+        <h3>Tecnologias e Ferramentas</h3>
         <blockquote>
           <ul>
-            <li>Front-End: React.js, HTML5, CSS3, React Router;</li>
-            <li>Ferramentas de Build/Deploy: Vite, Vercel.</li>
+            <li>
+              <strong>Front-End:</strong> React.js, Context API + Hooks, React
+              Router, Styled Components e Axios.
+            </li>
+            <li>
+              <strong>Back-End:</strong> API RESTful com Node.js, Express.js,
+              MySQL2, CORS e Dotenv para segurança.
+            </li>
+            <li>
+              <strong>Banco de Dados:</strong> MySQL.
+            </li>
+            <li>
+              <strong>Infraestrutura e Deploy:</strong> Vite e Vercel (para o
+              front-end).
+            </li>
           </ul>
         </blockquote>
-        <p>
-          O principal desafio que me propus foi criar uma plataforma de
-          perguntas e respostas do zero para entender e aplicar o conceito de
-          SPA (Single Page Application).{" "}
-        </p>
+
         <div className="imgsContainer">
-          <img src={imgBackground2} alt="" />
-          <img src={imgBackground3} alt="" />
+          <img src={imgBackground2} alt="Screenshot da tela de perguntas" />
+          <img src={imgBackground3} alt="Screenshot da tela de resultados" />
         </div>
+
+        <h3>Desafios e Aprendizados</h3>
         <p>
-          O objetivo central deste projeto era aprofundar meus conhecimentos em
-          React, com um foco especial em dois pilares: a criação de rotas
-          dinâmicas com React Router e o desenvolvimento de uma aplicação
-          escalável e de fácil manutenção, seguindo as melhores práticas do
-          mercado.
+          O principal objetivo deste projeto foi solidificar meus conhecimentos
+          em toda a pilha de desenvolvimento, enfrentando desafios práticos do
+          dia a dia de um desenvolvedor full-stack.
         </p>
         <p>
-          Durante o desenvolvimento, um dos desafios mais interessantes foi
-          criar um sistema de "quiz" dinâmico, onde as perguntas mudam na mesma
-          tela sem a necessidade de recarregar a página, proporcionando uma
-          experiência fluida ao usuário.
+          <strong>Construção da API RESTful:</strong> Um dos principais marcos
+          foi desenvolver o back-end com Express. Pela primeira vez, implementei
+          a comunicação entre front-end e back-end, estruturando a API com uma
+          arquitetura organizada em controllers e infraestrutura, o que foi
+          fundamental para entender o fluxo de dados de ponta a ponta.
         </p>
-        <blockquote>
-          <p>
-            O Problema: Como gerenciar a exibição sequencial das perguntas,
-            permitindo que o usuário avance ou retorne, mantendo a performance
-            da aplicação?
-          </p>
-        </blockquote>
-        <blockquote>
-          <p>
-            A Solução: Para resolver este desafio, utilizei o gerenciamento de
-            estado local do React através do hook useState. Criei um estado para
-            armazenar o índice da página atual (ex: const [idPaginaAtual,
-            setIdPaginaAtuall] = useState(0)).
-          </p>
-          <p>
-            A cada resposta registrada, a função de callback simplesmente
-            incrementa ou decrementa esse índice, fazendo com que o React
-            renderize eficientemente apenas a nova pergunta correspondente, o
-            que otimiza a performance e a experiência do usuário.
-          </p>
-        </blockquote>
+        <p>
+          <strong>Gerenciamento de Estado no Front-End:</strong> Para garantir
+          um código limpo e de fácil manutenção, a gestão do estado da aplicação
+          (como a pergunta atual e as respostas do usuário) era crucial. A
+          solução foi centralizar essa lógica utilizando a **Context API** em
+          conjunto com um **hook personalizado (`useApiContext`)**, isolando as
+          requisições e o estado do restante da aplicação.
+        </p>
+        <p>
+          <strong>Segurança e Boas Práticas:</strong> Ao final do projeto,
+          encarei o desafio de preparar a aplicação para um ambiente real.
+          Pesquisei e implementei o uso de **variáveis de ambiente (`.env`)**
+          com a biblioteca `dotenv` para proteger dados sensíveis, como as
+          credenciais do banco de dados, garantindo que nenhuma informação
+          secreta fosse exposta no controle de versão (Git).
+        </p>
+
+        <div className="link">
+          <a
+            href="https://github.com/Pauloglhr/pesquisa-engajamento"
+            target="_blank"
+          >
+            Repositório no github »
+          </a>
+        </div>
       </div>
     </StyledProjectArticle>
   );

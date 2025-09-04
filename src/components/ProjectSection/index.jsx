@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import SplitType from "split-type";
-import bgProjeto1 from "@/assets/projetoImage/1/imagem.png";
+import bgProjeto1 from "@/assets/projetoImage/1/imagem2.png";
 import { useTransitionNavigate } from "@/contexts/NavigationContext";
 
 const StyledProjectSection = styled.section`
