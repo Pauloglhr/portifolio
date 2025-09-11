@@ -18,18 +18,17 @@ const StyledHeroSection = styled.div`
   }
 
   h1 {
-    font-size: clamp(2.5rem, 10vw, 8rem);
+    font-size: clamp(3.5rem, 8vw, 8rem);
     margin: 0;
-    text-align: center;
-    @media (max-width: 768px) {
-      /* max-width: 330px; */
-  }
+    @media (max-width: 375px) {
+      padding: 0 32px;
+      text-align: center;
+    }
   }
 
   h2 {
     font-size: clamp(1rem, 3vw, 3rem);
   }
-  
 `;
 
 const HeroSection = () => {
@@ -66,7 +65,9 @@ const HeroSection = () => {
 
   return (
     <StyledHeroSection ref={container}>
-      <h1>PAULO TORRES</h1>
+      <h1>
+        <div>PAULO</div> <div>TORRES</div>
+      </h1>
       <h2>WEB DEVELOPER</h2>
     </StyledHeroSection>
   );
